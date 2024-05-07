@@ -19,7 +19,7 @@ module.exports = async () => {
 
   try {
     const redirectsRes = await fetch(
-      `${"https://ayushi-three.vercel.app"}/api/redirects?limit=1000&depth=1`,
+      `${"https://ayushi-6gd99372v-aaaayushs-projects.vercel.app"}/api/redirects?limit=1000&depth=1`,
     )
 
     const redirectsData = await redirectsRes.json()
@@ -32,7 +32,7 @@ module.exports = async () => {
         const { from, to: { type, url, reference } = {} } = doc
 
         let source = from
-          .replace("https://ayushi-three.vercel.app", '')
+          .replace("https://ayushi-6gd99372v-aaaayushs-projects.vercel.app", '')
           .split('?')[0]
           .toLowerCase()
 
@@ -41,7 +41,7 @@ module.exports = async () => {
         let destination = '/'
 
         if (type === 'custom' && url) {
-          destination = url.replace("https://ayushi-three.vercel.app", '')
+          destination = url.replace("https://ayushi-6gd99372v-aaaayushs-projects.vercel.app", '')
         }
 
         if (
@@ -49,7 +49,7 @@ module.exports = async () => {
           typeof reference.value === 'object' &&
           reference?.value?._status === 'published'
         ) {
-          destination = `${"https://ayushi-three.vercel.app"}/${
+          destination = `${"https://ayushi-6gd99372v-aaaayushs-projects.vercel.app"}/${
             reference.relationTo !== 'pages' ? `${reference.relationTo}/` : ''
           }${reference.value.slug}`
         }
